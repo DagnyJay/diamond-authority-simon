@@ -1,7 +1,7 @@
 # diamond-authority-simon
 The classic Simon game, with a Steven-Universe twist
 
-![Diamond-Authority-Simon-wireframe](./iOS.jpg)
+![Diamond-Authority-Simon-wireframe](./diamond-authority-simon.jpg)
 
 ```Pseudocode:
 1. Set-up: 
