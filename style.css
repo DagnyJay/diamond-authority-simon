@@ -3,3 +3,57 @@
     color: white;
     background-color: black;
 }
+
+/* #diamond-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3fr 3fr 3fr;
+}
+
+#white-diamond {
+    grid-column: 2 / span 2;
+    grid-row: 1 / span 1;
+}
+
+#yellow-diamond {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+}
+
+#blue-diamond {
+    grid-column: 3 / span 2;
+    grid-row: 2 / span 1;
+}
+
+#pink-diamond {
+    grid-column: 2 / span 2;
+    grid-row: 3 / span 1;
+} */
+#diamond-buttons {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 250px 250px 250px;
+    grid-template-areas: "white white"
+                         "yellow blue"
+                         "pink pink";
+}
+
+#white-diamond {
+    grid-area: white;
+    text-align: center;
+}
+
+#yellow-diamond {
+    text-align: center;
+    grid-area: yellow;
+}
+
+#blue-diamond {
+    text-align: center;
+    grid-area: blue;
+}
+
+#pink-diamond {
+    grid-area: pink;
+    text-align: center;
+}
