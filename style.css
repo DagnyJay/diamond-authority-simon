@@ -17,6 +17,14 @@
                          "pink pink";
 }
 
+img:hover {
+    filter: brightness(400%)
+}
+
+.flash {
+    filter: brightness(400%)
+}
+
 #white-diamond {
     grid-area: white;
     text-align: center;

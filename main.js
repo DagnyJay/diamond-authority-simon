@@ -1,6 +1,6 @@
 /*----- constants -----*/
 const FLASH_INTERVAL_MS = 1000
-// amount of time for flashing btns
+
 
 /*----- app's state (variables) -----*/
 let playerChoice;
@@ -13,11 +13,11 @@ let flashInterval;
 const proceedBtn = document.getElementById('proceed')
 const msgEl = document.getElementById('player-message')
 const diamondImages = document.querySelectorAll('#diamond-buttons img')
-// this is an array-like thing and you can use [0..3] to index any of these
+const diamondBtns = document.getElementById('diamond-buttons')
 
 /*----- event listeners -----*/
 proceedBtn.addEventListener('click', startGame)
-// diamondImages.addEventListener('click', )
+diamondBtns.addEventListener('click', playerTurn)
 // diamond-buttons
 
 /*----- functions -----*/
@@ -39,15 +39,16 @@ function startGame() {
 
 function flashDiamonds() {
     isFlashing = true;
-    let i = 0
+    let i = -1
     flashInterval = setInterval(function() {
+        removeFlash();
         if (i === gameSoFar.length -1) {
             clearInterval(flashInterval)
-        } 
-        console.log(gameSoFar[i]);
-        gameSoFar[i] = document.querySelector(diamondImages[i])
-        //**document.queryselector to grab the correct diamond using the index of gameSoFar
+        } else {
+            diamondImages[gameSoFar[i+1]].classList.add('flash')
+        }
         i++
+        console.log(diamondImages[gameSoFar[i]]);
     },FLASH_INTERVAL_MS)
     // loop through gameSoFar and flash each diamond
     // you'll need setTimeout for this guy (or setInterval?)
@@ -55,8 +56,18 @@ function flashDiamonds() {
     isFlashing = false;
 }
 
+function removeFlash() {
+    diamondImages.forEach(function(diamond) {
+        diamond.classList.remove('flash')
+    })
+}
+
 function getMove() {
     return Math.floor(Math.random() * diamondImages.length);
+}
+
+function playerTurn(evt) {
+    console.log(evt.target.id)
 }
 
 function isGameOver() {
