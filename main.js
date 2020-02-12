@@ -37,22 +37,33 @@ function startGame() {
     flashDiamonds();
 }
 
+function renderMessage() {
+    console.log(isFlashing);
+    if (isFlashing === true) {
+    msgEl.innerText = `Observe`;
+    } else if (isFlashing === false) {
+        msgEl.innerText = `Replicate`;
+    } 
+}
+
 function flashDiamonds() {
     isFlashing = true;
+    renderMessage();
     let i = -1;
     playerChoice = [];
     flashInterval = setInterval(function() {
-        removeFlash();
         if (i === gameSoFar.length -1) {
-            console.log('if')
             clearInterval(flashInterval)
+            isFlashing = false
+            renderMessage();
         } else {
-            console.log('else')
             diamondImages[gameSoFar[i+1]].classList.add('flash')
+            setTimeout(function(){
+                removeFlash();
+            }, 800) 
         }
         i++
     },FLASH_INTERVAL_MS)
-    isFlashing = false;
 }
 
 function removeFlash() {
@@ -66,7 +77,6 @@ function getMove() {
 }
 
 function playerTurn(evt) {
-    // console.log(evt.target.id)
     playerChoice.push(parseInt(evt.target.id))
     compare();
 }
@@ -77,8 +87,16 @@ function compare() {
         gameSoFar.push(newMove);
         flashDiamonds();
     } else {
-        console.log("You lose")
+       for (i = 0; i < playerChoice.length; i++) {
+           if (playerChoice[i] !== gameSoFar[i]) {
+               console.log("you lose")
+               return
+           }
+       }
     }
+}
+
+function incrementScore() {
 
 }
 // function isGameOver() {}
