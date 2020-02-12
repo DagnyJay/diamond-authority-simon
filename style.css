@@ -4,6 +4,13 @@
     background-color: black;
 }
 
+button {
+    padding: 5px;
+    margin-bottom: 15px;
+    font-family: 'Space Mono', monospace;
+    font-size: 20px;
+}
+
 #preamble {
     text-align: center;
 }
@@ -11,7 +18,7 @@
 #diamond-buttons {
     display: grid;
     justify-content: center;
-    grid-template-rows: 250px 250px 250px;
+    grid-template-rows: 200px 200px 200px;
     grid-template-areas: "white white"
                          "yellow blue"
                          "pink pink";
@@ -45,6 +52,13 @@ img:hover {
     text-align: center;
 }
 
-#score {
+#score-tracker {
     text-align: left;
+    margin: 5vh;
+    padding: 5vh;
+}
+
+#credit {
+    text-align: right;
+    color: grey;
 }

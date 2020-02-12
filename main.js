@@ -1,5 +1,3 @@
-// somehow I need contingencies to prevent game saying I lose when I don't select all gameSoFar options simultaneously
-
 /*----- constants -----*/
 const FLASH_INTERVAL_MS = 1000
 
@@ -13,6 +11,7 @@ let flashInterval;
 /*----- cached element references -----*/
 const proceedBtn = document.getElementById('proceed')
 const msgEl = document.getElementById('player-message')
+const scoreEl  = document.getElementById('score-tracker')
 const diamondImages = document.querySelectorAll('#diamond-buttons img')
 const diamondBtns = document.getElementById('diamond-buttons')
 
@@ -84,6 +83,8 @@ function compare() {
     if(JSON.stringify(playerChoice) === JSON.stringify(gameSoFar)) {
         let newMove = getMove();
         gameSoFar.push(newMove);
+        score += 1
+        scoreEl.innerText = `Score :${score}`;
         flashDiamonds();
     } else {
        for (i = 0; i < playerChoice.length; i++) {
@@ -95,10 +96,7 @@ function compare() {
     }
 }
 
-function incrementScore() {
-
-}
 function diamondsWin() {
-    msgEl.innerText = `They found you. It's over.`
+    msgEl.innerText = `They found you. It's over.`;
 }
     
