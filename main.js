@@ -38,7 +38,6 @@ function startGame() {
 }
 
 function renderMessage() {
-    console.log(isFlashing);
     if (isFlashing === true) {
     msgEl.innerText = `Observe`;
     } else if (isFlashing === false) {
@@ -89,7 +88,7 @@ function compare() {
     } else {
        for (i = 0; i < playerChoice.length; i++) {
            if (playerChoice[i] !== gameSoFar[i]) {
-               console.log("you lose")
+               diamondsWin();
                return
            }
        }
@@ -99,5 +98,7 @@ function compare() {
 function incrementScore() {
 
 }
-// function isGameOver() {}
-    // playerChoice[] !== gameSoFar[];
+function diamondsWin() {
+    msgEl.innerText = `They found you. It's over.`
+}
+    
