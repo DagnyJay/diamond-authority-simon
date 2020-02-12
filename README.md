@@ -1,5 +1,21 @@
 # diamond-authority-simon
-The classic Simon game, with a Steven-Universe twist
+***Diamond Authority Simon***
+The classic Simon memory game, with a Steven-Universe twist
+
+___Background Info___
+I have a real soft-spot for animated stuff, and Steven Universe (a gorgeously-animated show on Cartoon Network which follows the adventures of a young boy in space) is one of my favorites. A major story arc of the show is Steven and his friends attempting to save Earth and worlds like it from a dictortatorship of technologically-advanced race of aliens, collectively referred to as "The Diamonds". 
+
+In this game, you are a doomed rebel, desperately trying to divert the Diamonds' attention from your cause. You can't win, but that doesn't mean you can't try :)
+
+Credit to ![McBurgess] (.https://www.redbubble.com/people/mcburgess/shop?ref=artist_title_name#profile) for the gorgeous rendering of the diamonds I have used as the images in my game!
+
+___Technologies Used___
+Javascript, HTML, and CSS.
+
+___Getting Started___
+Play my game here: https://dagnyjay.github.io/diamond-authority-simon/
+
+___Next Steps___
 
 ![Diamond-Authority-Simon-wireframe](./diamond-authority-simon.jpg)
 
