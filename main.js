@@ -1,6 +1,7 @@
+// somehow I need contingencies to prevent game saying I lose when I don't select all gameSoFar options simultaneously
+
 /*----- constants -----*/
 const FLASH_INTERVAL_MS = 1000
-
 
 /*----- app's state (variables) -----*/
 let playerChoice;
@@ -18,7 +19,6 @@ const diamondBtns = document.getElementById('diamond-buttons')
 /*----- event listeners -----*/
 proceedBtn.addEventListener('click', startGame)
 diamondBtns.addEventListener('click', playerTurn)
-// diamond-buttons
 
 /*----- functions -----*/
 init();
@@ -39,20 +39,19 @@ function startGame() {
 
 function flashDiamonds() {
     isFlashing = true;
-    let i = -1
+    let i = -1;
+    playerChoice = [];
     flashInterval = setInterval(function() {
         removeFlash();
         if (i === gameSoFar.length -1) {
+            console.log('if')
             clearInterval(flashInterval)
         } else {
+            console.log('else')
             diamondImages[gameSoFar[i+1]].classList.add('flash')
         }
         i++
-        console.log(diamondImages[gameSoFar[i]]);
     },FLASH_INTERVAL_MS)
-    // loop through gameSoFar and flash each diamond
-    // you'll need setTimeout for this guy (or setInterval?)
-
     isFlashing = false;
 }
 
@@ -67,13 +66,20 @@ function getMove() {
 }
 
 function playerTurn(evt) {
-    console.log(evt.target.id)
+    // console.log(evt.target.id)
+    playerChoice.push(parseInt(evt.target.id))
+    compare();
 }
 
-function isGameOver() {
+function compare() {
+    if(JSON.stringify(playerChoice) === JSON.stringify(gameSoFar)) {
+        let newMove = getMove();
+        gameSoFar.push(newMove);
+        flashDiamonds();
+    } else {
+        console.log("You lose")
+    }
+
+}
+// function isGameOver() {}
     // playerChoice[] !== gameSoFar[];
-}
-
-function diamondsWin() {
-
-}

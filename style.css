@@ -18,11 +18,11 @@
 }
 
 img:hover {
-    filter: brightness(400%)
+    filter: contrast(0%) brightness(200%);
 }
 
 .flash {
-    filter: brightness(400%)
+    filter: contrast(0%) brightness(200%);
 }
 
 #white-diamond {
