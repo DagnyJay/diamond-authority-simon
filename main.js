@@ -22,6 +22,7 @@ const pinkDiamondSound = document.querySelector('#pink-sound')
 /*----- event listeners -----*/
 proceedBtn.addEventListener('click', startGame)
 diamondBtns.addEventListener('click', playerTurn)
+
 /*----- functions -----*/
 init();
 
@@ -37,12 +38,6 @@ function startGame() {
     gameSoFar.push(newMove);
     proceedBtn.style.display = 'none'
     flashDiamonds();
-}
-
-function hideProceed() {
-    document.getElementById("proceed").onclick = function() { 
-        document.getElementById("proceed").style.display = "none"; 
-    } 
 }
 
 function renderMessage() {
