@@ -15,6 +15,11 @@ button {
     text-align: center;
 }
 
+#player-message {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
 #diamond-buttons {
     display: grid;
     justify-content: center;

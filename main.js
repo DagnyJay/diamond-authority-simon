@@ -30,7 +30,6 @@ function init() {
 }
 
 function startGame() {
-    //proceed button linked
     let newMove = getMove();
     gameSoFar.push(newMove);
     flashDiamonds();
