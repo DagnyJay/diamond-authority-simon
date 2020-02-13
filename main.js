@@ -1,5 +1,5 @@
 /*----- constants -----*/
-const FLASH_INTERVAL_MS = 1000
+const FLASH_INTERVAL_MS = 1200
 
 /*----- app's state (variables) -----*/
 let playerChoice;
@@ -14,11 +14,14 @@ const msgEl = document.getElementById('player-message')
 const scoreEl  = document.getElementById('score-tracker')
 const diamondImages = document.querySelectorAll('#diamond-buttons img')
 const diamondBtns = document.getElementById('diamond-buttons')
+const whiteDiamondSound = document.querySelector('#white-sound')
+const yellowDiamondSound = document.querySelector('#yellow-sound')
+const blueDiamondSound = document.querySelector('#blue-sound')
+const pinkDiamondSound = document.querySelector('#pink-sound')
 
 /*----- event listeners -----*/
 proceedBtn.addEventListener('click', startGame)
 diamondBtns.addEventListener('click', playerTurn)
-
 /*----- functions -----*/
 init();
 
@@ -32,7 +35,14 @@ function init() {
 function startGame() {
     let newMove = getMove();
     gameSoFar.push(newMove);
+    proceedBtn.style.display = 'none'
     flashDiamonds();
+}
+
+function hideProceed() {
+    document.getElementById("proceed").onclick = function() { 
+        document.getElementById("proceed").style.display = "none"; 
+    } 
 }
 
 function renderMessage() {
@@ -54,7 +64,17 @@ function flashDiamonds() {
             isFlashing = false
             renderMessage();
         } else {
-            diamondImages[gameSoFar[i+1]].classList.add('flash')
+            const rdmIdx = gameSoFar[i+1]
+            diamondImages[rdmIdx].classList.add('flash')
+            if (rdmIdx === 0) {
+                whiteDiamondSound.play();
+            } else if (rdmIdx === 1) {
+                yellowDiamondSound.play();
+            } else if (rdmIdx === 2) {
+                blueDiamondSound.play();
+            } else if (rdmIdx === 3) {
+                pinkDiamondSound.play();
+            }
             setTimeout(function(){
                 removeFlash();
             }, 800) 
@@ -74,8 +94,22 @@ function getMove() {
 }
 
 function playerTurn(evt) {
+    console.log(evt);
     playerChoice.push(parseInt(evt.target.id))
+    playSound(evt);
     compare();
+}
+
+function playSound(evt) {
+    if (evt.target.id === '0') {
+        whiteDiamondSound.play();
+    } else if (evt.target.id === '1') {
+        yellowDiamondSound.play();
+    } else if (evt.target.id === '2') {
+        blueDiamondSound.play();
+    } else if (evt.target.id === '3') {
+        pinkDiamondSound.play();
+    }
 }
 
 function compare() {
@@ -97,5 +131,5 @@ function compare() {
 
 function diamondsWin() {
     msgEl.innerText = `They found you. It's over.`;
+    diamondBtns.removeEventListener("click", playerTurn, true); 
 }
-    
