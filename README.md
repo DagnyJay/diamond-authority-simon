@@ -1,5 +1,4 @@
 # diamond-authority-simon
-# **Diamond Authority Simon**
 The classic Simon memory game, with a Steven-Universe twist
 
 ### ___Background Info___
@@ -13,6 +12,12 @@ Javascript, HTML, and CSS.
 ### ___Getting Started___
 Play my game here: https://dagnyjay.github.io/diamond-authority-simon/
 
-### ___Next Steps___
+It looks like this: 
 
-![Diamond-Authority-Simon-wireframe](./diamond-authority-simon.jpg)
+
+![Diamond-Authority-Simon-screenshot](https://i.imgur.com/PnhASYU.png)
+
+### ___Next Steps___
+* I'm excited to learn more about CSS Grid. It works great in the desktop version, but the way the gridbox is laid out means that another sized screen would have issues playing my game (specifically, issues with the containers holding my images not mapping to the clickable area to select the image).  
+* Somewhere to store high scores (right now, once the page refreshes there's no memory of previous games). 
+* Some kind of win logic. Right now, you play until you lose. It'd be fun to have some kind of benchmark score that, once achieved, lets the player know they've aided their rebel cause but they can keep playing to further mess with The Diamonds.  
